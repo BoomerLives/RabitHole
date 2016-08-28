@@ -1,11 +1,14 @@
-# This is the Tic-Tac-Toe Game
-# Programmer: Nathan Calderon
+# Author: Nathan Calderon
+# Filename: Tic_Tac_Toe.py
+
+# This is a Tic Tac Toe game written in python
 
 # Import
 import pprint
 import random
 
 # functions
+# print the tic tac toe board
 def printTheBoard(board):
     print('\nThe official board.')
     print(board[1] + '|' + board[2] + '|' + board[3])
@@ -14,13 +17,15 @@ def printTheBoard(board):
     print('-----')
     print(board[7] + '|' + board[8] + '|' + board[9] + '\n')
 
+# choose who is X and who is O
 def computer_XO(user_XO):
     if user_XO == 'X':
         computer_XO = 'O'
     else:
         computer_XO = 'X'
     return computer_XO
-########
+
+# how the computer chooses a move
 def computerMove(computer_XO):
     available = []
     for k,v in theBoard.items():
@@ -46,13 +51,14 @@ def computerMove(computer_XO):
             if v == ' ':
                 theBoard[k] = computer_XO
                 break
-        
-##########    
+
+# user defined move          
 def UserMove(userGridPick, XO):
     for k in theBoard.keys():
         if k == userGridPick:
             theBoard[k] = XO
 
+# verify user entry
 def userXOVerify(selection):
     if selection in ('X', 'O'):
         return selection
@@ -61,6 +67,7 @@ def userXOVerify(selection):
         print("You will be O's.")
         return 'O'
 
+# print the board for user help
 def boardGrid():
     print('The player "help" board.')
     key=[]
@@ -88,6 +95,7 @@ def boardGrid():
     del key
     del value
 
+# determine if any row has three Xs or Os
 def countCheck(row):
     if row == ['X','X','X']:
         return True
@@ -96,6 +104,7 @@ def countCheck(row):
     else:
         return False
 
+# determine if a placement is valid
 def gameCheck():
     top = []
     middle = []
@@ -142,9 +151,9 @@ def gameCheck():
     else:
         return False
 
-
 ################## main ############
 
+# variables
 condition = True
 while condition:
 
